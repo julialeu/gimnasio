@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>Formulario para añadir socio</h1>
+
+
+<div mat-dialog-content>
+
+  <form [formGroup]="sociosForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input type="text" minlength="3" formControlName="Nombre" matInput placeholder="Nombre">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Apellidos</mat-label>
+      <input type="text" minlength="3" formControlName="Apellidos" matInput placeholder="Apellidos">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Socio</mat-label>
+      <input type="number" formControlName="Socio" matInput placeholder="Socio">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>DNI</mat-label>
+      <input type="text" minlength="9" maxlength="9" formControlName="DNI" matInput placeholder="DNI">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Teléfono</mat-label>
+      <input type="number" formControlName="Telefono" matInput placeholder="Telefono">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Sexo</mat-label>
+      <mat-select  formControlName="Sexo" placeholder="Sexo">
+        <mat-option value="Hombre">Hombre</mat-option>
+        <mat-option value="Mujer">Mujer</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+
+
+</div>
+<div mat-dialog-action>
+  <button mat-dialog-button mat-dialog-close>Cerrar</button>
+  <button style="margin-left:8px " mat-dialog-button color="primary" (click)="addSocio()">Guardar</button>
+</div>
+

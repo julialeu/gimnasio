@@ -1,0 +1,32 @@
+{
+  "sociosList": [
+    {
+      "Nombre": "Quasi reiciendis ill",
+      "Apellidos": "Laboriosam est nesc",
+      "Socio": 26,
+      "DNI": "Consequat",
+      "Telefono": 56,
+      "Sexo": "Hombre",
+      "id": 1
+    },
+    {
+      "Nombre": "Natus ad velit ex q",
+      "Apellidos": "Nihil totam tempore",
+      "Socio": 87,
+      "DNI": "Ut perspi",
+      "Telefono": 78,
+      "Sexo": "Hombre",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
