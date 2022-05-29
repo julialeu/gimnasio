@@ -14,7 +14,7 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class AppComponent implements OnInit {
   title = 'ejercicio-gimnasio';
-  displayedColumns: string[] = ['Nombre', 'Apellidos', 'Socio', 'DNI', 'Telefono', 'Sexo'];
+  displayedColumns: string[] = ['Nombre', 'Apellidos', 'Socio', 'DNI', 'Telefono', 'Sexo', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -31,6 +31,10 @@ export class AppComponent implements OnInit {
   openDialog() {
     this.dialog.open(DialogComponent, {
       width: '30%'
+    }).afterClosed().subscribe(val=>{
+      if (val==='guardar'){
+        this.getAllSocios();
+      }
     });
   }
   getAllSocios(){
@@ -46,7 +50,28 @@ export class AppComponent implements OnInit {
         }
       })
   }
-
+  editSocio(row: any){
+    this.dialog.open(DialogComponent,{
+      width: '30%',
+      data:row
+    }).afterClosed().subscribe(val=>{
+      if(val==='actualizar'){
+        this.getAllSocios();
+      }
+    })
+  }
+  deleteSocio(id: number){
+    this.api.deleteSocio(id)
+      .subscribe({
+        next:(res)=>{
+          alert("Socio eliminado");
+          this.getAllSocios();
+        },
+        error: ()=>{
+          alert("Error al eliminar socio")
+        }
+      })
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
